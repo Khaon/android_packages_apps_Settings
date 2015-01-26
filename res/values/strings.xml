@@ -6357,6 +6357,7 @@
     <string name="qs_screenshot_tile">Screenshot</string>
     <string name="qs_tile_usb_tether">USB tethering</string>
     <string name="qs_tile_heads_up">Heads up</string>
+    <string name="qs_tile_visualizer">AudioFX</string>
 
   <!-- Privacy Guard -->
     <string name="privacy_guard_dlg_title">Enable privacy guard?</string>
