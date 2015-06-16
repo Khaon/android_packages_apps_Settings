@@ -87,10 +87,10 @@
 
     </dashboard-category>
 
-    <!-- DEVICE -->
+    <!-- CUSTOMIZATIONS -->
     <dashboard-category
-            android:id="@+id/device_section"
-            android:title="@string/header_category_device" >
+            android:id="@+id/simpleaosp_settings"
+            android:title="@string/header_category_optipop" >
 
 	<!-- Custom settings -->
         <dashboard-tile
@@ -109,6 +109,12 @@
                     android:targetPackage="com.lovejoy777.rroandlayersmanager"
                     android:targetClass="com.lovejoy777.rroandlayersmanager.menu" />
         </dashboard-tile>
+    </dashboard-category>
+
+    <!-- DEVICE -->
+    <dashboard-category
+            android:id="@+id/device_section"
+            android:title="@string/header_category_device" >
 
         <!-- Home -->
         <dashboard-tile
