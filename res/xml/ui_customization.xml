@@ -50,7 +50,8 @@
         <PreferenceScreen
             android:key="recent_panel"
             android:fragment="com.android.settings.slim.RecentPanel"
-            android:title="@string/recent_panel_category" />
+            android:title="@string/recent_panel_category"
+            android:defaultValue="false" />
 
 	 <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
 	    android:key="recents_show_hide_search_bar"
