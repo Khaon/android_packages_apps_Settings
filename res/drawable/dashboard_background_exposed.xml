@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--
+  - This commit allows themers to theme the dashboard tiles with a: xml, .png, or use the standard color. 
+  - A few tips for themers:
+    - Add code below above <solid> and this will enable you to add a corner radius to each corner.
+        <corners
+        android:topLeftRadius="30dp"
+        android:topRightRadius="30dp"
+        android:bottomLeftRadius="30dp"
+        android:bottomRightRadius="30dp"
+        />
+    - Google will be your best resource to find tips on how to edit <layer-list> xmls.
+-->
+        
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape  android:shape="rectangle">
