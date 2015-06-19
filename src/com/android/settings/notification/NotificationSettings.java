@@ -84,6 +84,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_VOLUME_PANEL_TIMEOUT = "volume_panel_time_out";
+    private static final String KEY_HEADS_UP_SETTINGS = "heads_up_enabled";
 
     private static final int SAMPLE_CUTOFF = 2000;  // manually cap sample playback at 2 seconds
 
@@ -165,7 +166,6 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         mNotificationAccess = findPreference(KEY_NOTIFICATION_ACCESS);
         refreshNotificationListeners();
 
-        mHeadsUp = findPreference(Settings.System.HEADS_UP_NOTIFICATION);
         updateRingerMode();
         updateEffectsSuppressor();
 
@@ -175,6 +175,14 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         mVolumePanelTimeOut.setValue(String.valueOf(volumePanelTimeOut));
         mVolumePanelTimeOut.setOnPreferenceChangeListener(this);
         updateVolumePanelTimeOutSummary(volumePanelTimeOut);
+
+        mHeadsUp = findPreference(KEY_HEADS_UP_SETTINGS);
+    }
+
+	private boolean getUserHeadsUpState() {
+         return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.HEADS_UP_USER_ENABLED,
+                Settings.System.HEADS_UP_USER_ON) != 0;
     }
 
     @Override
@@ -192,9 +200,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
             volumePref.onActivityResume();
         }
 
-        boolean headsUpEnabled = Settings.System.getInt(
-                getContentResolver(), Settings.System.HEADS_UP_NOTIFICATION, 1) != 0;
-        mHeadsUp.setSummary(headsUpEnabled
+        mHeadsUp.setSummary(getUserHeadsUpState()
                 ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
     }
 
